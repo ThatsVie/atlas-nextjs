@@ -1,10 +1,11 @@
-export default function Page({ params }: { params: { id: string } }) {
-  // Simulate slow page loading
-  const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+export default async function Page({ params }: { params: { id: string } }) {
+  // Ensure params.id exists to avoid misinterpretation
+  if (!params || !params.id) {
+    return <div>Error: No topic ID provided.</div>;
+  }
 
-  delay(3000).then(() => {
-    console.log("Simulated delay completed");
-  });
+  // Simulate slow page loading
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return <div>Topic Page: {params.id}</div>;
 }
