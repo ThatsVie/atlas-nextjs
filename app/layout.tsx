@@ -3,7 +3,7 @@ import { inter } from "@/app/fonts";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Full Stack Next.js | Atlas School",
+  title: "Full Stack Next.js | Vie P. |Atlas School",
 };
 
 type Props = {
