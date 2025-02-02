@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 
-interface PageProps {
-  params: { id?: string };
-}
-
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: { params: Record<string, string> }) {
   if (!params?.id) {
     return notFound();
   }
