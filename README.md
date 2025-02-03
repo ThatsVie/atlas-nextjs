@@ -23,7 +23,6 @@
 - **[Learn Next.js](https://nextjs.org/learn)** – Official guide covering Next.js fundamentals.  
 - **[Next.js App Router](https://atlas-jswank.github.io/blog/next-js-routing/)** – Overview of the Next.js routing system.  
 - **[Routing Fundamentals](https://nextjs.org/docs/app/building-your-application/routing)** – Official Next.js documentation for routing. 
-- **[Routing Fundamentals](https://nextjs.org/docs/app/building-your-application/routing)** – Official Next.js documentation for routing.
 - **[Next.js Database Setup](https://atlas-jswank.github.io/blog/next-js-database/)** – Guide for setting up and integrating a database.
 - **[Next.js Data Fetching](https://atlas-jswank.github.io/blog/next-js-data-fetching/)** – Guide for fetching and displaying data in Next.js. 
 - **[Next.js Server Actions](https://atlas-jswank.github.io/blog/next-js-server-actions/)** – Overview of server actions in Next.js.  
