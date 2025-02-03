@@ -1,7 +1,18 @@
-# Atlas Next JS - Full Stack React - Part 1  
- 
+<div align="center">
 
-## Table of Contents   
+# Atlas Next JS - Full Stack React - Part 1  
+
+![astronautpug](https://github.com/user-attachments/assets/317c4642-1b9b-4a7b-9a7c-dfd245a3caa8)
+
+ 
+## 🌐 **[Deployed Application](https://atlas-nextjs-zeta.vercel.app/)**
+
+ 
+### **Login Credentials**  **Email:** `user@atlasmail.com`   **Password:** `123456`
+</div>
+
+## Table of Contents
+- [Project Overview](#project-overview)
 - [Resources](#resources)  
   - [What I Read](#what-i-read)  
   - [Tools I Used](#tools-i-used)  
@@ -15,6 +26,9 @@
 - [Task 6: Deploy Application](#task-6-deploy-application)
 
 ---
+
+## Project Overview
+This is a **full-stack questions and answers application** where users can **create topics, ask questions, and vote on responses**. The project covers key concepts such as **routing, database integration, authentication, and deployment** using **Next.js, PostgreSQL, and Vercel**. It provides a structured way to practice building a dynamic web application with user interactions.
 
 ## Resources  
 
