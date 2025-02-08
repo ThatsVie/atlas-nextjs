@@ -1,6 +1,6 @@
 <div align="center">
 
-# Atlas Next JS - Full Stack React - Part 1  
+# Atlas Next JS - Full Stack React
 
 ![astronautpug](https://github.com/user-attachments/assets/317c4642-1b9b-4a7b-9a7c-dfd245a3caa8)
 
@@ -8,7 +8,7 @@
 ## 🌐 **[Deployed Application](https://atlas-nextjs-zeta.vercel.app/)**
 
  
-### **Login Credentials**  **Email:** `user@atlasmail.com`   **Password:** `123456`
+### **Login Credentials**  **Email:** `user@atlasmail.com` **Password:** `123456`
 </div>
 
 ## Table of Contents
@@ -17,18 +17,19 @@
   - [What I Read](#what-i-read)  
   - [Tools I Used](#tools-i-used)  
 - [Learning Objectives](#learning-objectives)  
-- [Task 0: Getting Started](#task-0-getting-started)  
+- [Task 0: Getting Started-Full Stack React-Part 1](#task-0-getting-started-full-stack-react-part-1)  
 - [Task 1: App Routing](#task-1-app-routing)
 - [Task 2: Setup Database](#task-2-setup-database)
 - [Task 3: Data Fetching](#task-3-data-fetching)
 - [Task 4: Server Actions](#task-4-server-actions)
 - [Task 5: Authentication](#task-5-authentication)
 - [Task 6: Deploy Application](#task-6-deploy-application)
+- [Task 7: Getting Started-Full Stack React-Part 2-Expanding the Application](#task-7-getting-started-full-stack-react-part-2-expanding-the-application)
 
 ---
 
 ## Project Overview
-This is a **full-stack questions and answers application** where users can **create topics, ask questions, and vote on responses**. The project covers key concepts such as **routing, database integration, authentication, and deployment** using **Next.js, PostgreSQL, and Vercel**. It provides a structured way to practice building a dynamic web application with user interactions.
+This is a **full-stack questions and answers application** where users can **create topics, ask questions, provide answers, and vote on responses**. The project builds upon its first phase by introducing **an answers table**, **server components**, and **OAuth authentication** while reinforcing database integration and API development using **Next.js, PostgreSQL, and Vercel**. It provides a structured way to practice building dynamic web applications with user interactions.
 
 ## Resources  
 
@@ -59,11 +60,13 @@ This is a **full-stack questions and answers application** where users can **cre
 
 - Learn to create multi-page react applications  
 - Build a full stack react app that interacts with a database  
-- Learn to integrate a login form into your application   
-
+- Learn to integrate a login form into your application  
+- Understand how to use client component, server components and server functions.
+- Implement a REST API in next.js
+- Understand how to use OAuth for authentication in nextjs
 ---
 
-### Task 0: Getting Started  
+### Task 0: Getting Started-Full Stack React-Part 1
 
 ### **What I Did**  
 
@@ -277,7 +280,6 @@ This implementation successfully integrates **server actions** for performing da
 - **[Handling Sign in and Sign out](https://authjs.dev/getting-started/session-management/login?framework=next-js)** – Official documentation on authentication session management.  
 
 
-
 ### **What I Did**  
 
 #### **Step 1: Setup Auth.js Handler**  
@@ -371,3 +373,35 @@ This implementation successfully integrates **server actions** for performing da
 - The application meets all deployment requirements, and **all functionality works as expected**.  
 
 ---
+
+## Task 7: Getting Started-Full Stack React-Part 2-Expanding the Application
+
+### **Learning Objective**  
+- Continue building on the existing Full Stack React application by expanding its functionality.  
+- Apply previous knowledge of Next.js to integrate new features.  
+
+### **What I Did**  
+
+#### **Step 1: Set Up the Project**  
+- Used the completed code from **Full Stack React - Part 1** as the starting point.  
+- Ensured the existing database, authentication, and UI were functioning correctly before proceeding.  
+
+#### **Step 2: Update the Database with the Answers Table**  
+- Replaced `app/seed/route.ts` with the [updated seed script.](https://github.com/atlas-jswank/atlas-nextjs/blob/main/app/seed/route.ts)
+- Started the development server:
+   ```bash
+   npm run dev
+   ```
+- Opened `http://localhost:3000/seed` to execute the new seed script and populate the database.  
+- Everything worked correctly, message in browser: **"Database seeded successfully"**.
+- Verified that the **answers table** was successfully created in the **database UI (NeonDB)**.  
+ 
+
+### **Result**  
+- The project now includes an **answers table** in the database.  
+- The application remains fully functional with the updated seed script. 
+- The repository is prepared for further enhancements in upcoming tasks.  
+
+---
+
+
