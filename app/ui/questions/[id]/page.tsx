@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { fetchQuestionById, fetchAnswers } from "@/lib/data";
 import { addAnswer } from "@/lib/actions";
 import { AcceptAnswerButton } from "@/components/AcceptAnswerButton";
@@ -22,6 +23,7 @@ export default function Page({ params }: PageProps) {
   const [answers, setAnswers] = useState<{ id: string; answer: string }[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   useEffect(() => {
     params.then((result) => {
@@ -64,6 +66,24 @@ export default function Page({ params }: PageProps) {
     return <div className="p-6 text-red-500">Question not found</div>;
   }
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const newAnswer = {
+      id: crypto.randomUUID(),
+      answer: formData.get("answer") as string,
+    };
+
+    setAnswers((prevAnswers) => [...prevAnswers, newAnswer]);
+
+    await addAnswer(formData);
+    form.reset();
+
+    router.refresh();
+  };
+
   const setAcceptedAnswer = (answerId: string) => {
     startTransition(() => {
       setQuestion((prev) => (prev ? { ...prev, answer_id: answerId } : prev));
@@ -76,7 +96,7 @@ export default function Page({ params }: PageProps) {
         <HashtagIcon className="h-6 w-6 mr-2" /> {question.title}
       </h1>
 
-      <form className="relative my-4" action={addAnswer}>
+      <form className="relative my-4" onSubmit={handleSubmit}>
         <input type="hidden" name="question_id" value={resolvedParams?.id} />
         <textarea
           name="answer"
