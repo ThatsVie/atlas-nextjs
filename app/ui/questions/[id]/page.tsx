@@ -92,13 +92,14 @@ export default function Page({ params }: PageProps) {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4 flex items-center">
+      <h1 className="text-3xl font-bold mb-4 flex items-center">
         <HashtagIcon className="h-6 w-6 mr-2" /> {question.title}
       </h1>
 
       <form className="relative my-4" onSubmit={handleSubmit}>
         <input type="hidden" name="question_id" value={resolvedParams?.id} />
-        <textarea
+        <input
+          type="text"
           name="answer"
           className="mt-1 block w-full rounded-md border border-atlas-white-300 bg-inherit py-3 pl-3 pr-28 text-lg text-gray-900 placeholder-gray-400 focus:outline-hidden focus:ring-3 focus:ring-atlas-teal"
           placeholder="Answer question"
