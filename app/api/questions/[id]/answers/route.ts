@@ -1,10 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { fetchAnswers } from "@/lib/data";
 
-export async function GET(_: unknown, context: { params: { id: string } }) {
+export async function GET(
+  req: NextRequest,
+  context: { params: Promise<{ id?: string }> }
+): Promise<NextResponse> {
   try {
-    const { id } = context.params;
-    
+    const { id } = await context.params;
+
     if (!id) {
       return NextResponse.json({ error: "Question ID is required" }, { status: 400 });
     }
