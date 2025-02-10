@@ -2,6 +2,7 @@ import { AskQuestion } from "@/components/AskQuestion";
 import { Question } from "@/components/Question";
 import { fetchQuestions, fetchTopic } from "@/lib/data";
 import { HashtagIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -23,12 +24,17 @@ export default async function Page({ params }: PageProps) {
       </h1>
       <AskQuestion topic={topic.id} />
       {questions.map((question) => (
-        <Question
+        <Link
           key={question.id}
-          id={question.id}
-          text={question.title}
-          votes={question.votes}
-        />
+          href={`/ui/questions/${question.id}`}
+          className="block"
+        >
+          <Question
+            id={question.id}
+            text={question.title}
+            votes={question.votes}
+          />
+        </Link>
       ))}
     </div>
   );

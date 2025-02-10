@@ -24,7 +24,9 @@ export default async function SideNav() {
         {user && (
           <div className="flex items-center space-x-2 p-2 rounded-md bg-gray-200">
             <div className="h-8 w-8 rounded-full bg-gray-400"></div>
-            <span className="text-sm font-medium">{user.name || "Test User"}</span>
+            <span className="text-sm font-medium">
+              {user.name || "Test User"}
+            </span>
           </div>
         )}
 

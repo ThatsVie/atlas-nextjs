@@ -27,7 +27,7 @@ async function seedUsers() {
         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
         ON CONFLICT (id) DO NOTHING;
       `;
-    })
+    }),
   );
 
   return insertedUsers;
@@ -51,8 +51,8 @@ async function seedTopics() {
         INSERT INTO topics (id, title)
         VALUES (${topic.id}, ${topic.title})
         ON CONFLICT (id) DO NOTHING;
-      `
-    )
+      `,
+    ),
   );
 
   return insertedTopics;
@@ -79,8 +79,8 @@ async function seedQuestions() {
         INSERT INTO questions (id, title, topic_id, votes)
         VALUES (${question.id}, ${question.title}, ${question.topic}, ${question.votes})
         ON CONFLICT (id) DO NOTHING;
-      `
-    )
+      `,
+    ),
   );
 
   return insertedQuestions;
@@ -114,8 +114,8 @@ async function seedAnswers() {
         INSERT INTO answers (id, answer, question_id)
         VALUES (${answer.id}, ${answer.answer}, ${answer.question_id})
         ON CONFLICT (id) DO NOTHING;
-      `
-    )
+      `,
+    ),
   );
 
   return insertedAnswers;
