@@ -4,6 +4,7 @@ import { useEffect, useState, useTransition } from "react";
 import { fetchQuestionById, fetchAnswers } from "@/lib/data";
 import { addAnswer } from "@/lib/actions";
 import { AcceptAnswerButton } from "@/components/AcceptAnswerButton";
+import { HashtagIcon } from "@heroicons/react/24/outline";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -71,19 +72,21 @@ export default function Page({ params }: PageProps) {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">{question.title}</h1>
+      <h1 className="text-2xl font-bold mb-4 flex items-center">
+        <HashtagIcon className="h-6 w-6 mr-2" /> {question.title}
+      </h1>
 
-      <form className="mb-4 flex items-center gap-2" action={addAnswer}>
+      <form className="relative my-4" action={addAnswer}>
         <input type="hidden" name="question_id" value={resolvedParams?.id} />
         <textarea
           name="answer"
-          className="w-full p-2 border rounded resize-none"
+          className="mt-1 block w-full rounded-md border border-atlas-white-300 bg-inherit py-3 pl-3 pr-28 text-lg text-gray-900 placeholder-gray-400 focus:outline-hidden focus:ring-3 focus:ring-atlas-teal"
           placeholder="Answer question"
           required
         />
         <button
           type="submit"
-          className="bg-secondary text-white px-4 py-2 rounded hover:bg-primary-dark"
+          className="absolute right-2 top-2 flex h-10 w-24 items-center justify-center rounded-md border bg-secondary px-4 text-lg text-white focus:bg-secondary"
         >
           Answer
         </button>
