@@ -3,7 +3,8 @@ import { fetchAnswers } from "@/lib/data";
 
 export async function GET(_: unknown, context: { params: { id: string } }) {
   try {
-    const { id } = await context.params;
+    const { id } = context.params;
+    
     if (!id) {
       return NextResponse.json({ error: "Question ID is required" }, { status: 400 });
     }
