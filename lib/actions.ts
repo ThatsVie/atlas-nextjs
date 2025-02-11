@@ -41,8 +41,12 @@ export async function addQuestion(question: FormData) {
 
 export async function addVote(data: FormData) {
   try {
-    incrementVotes(data.get("id") as string);
-    revalidatePath("/ui/topics/[id]", "page");
+    const questionId = data.get("id") as string;
+    if (!questionId) throw new Error("Invalid question ID");
+
+    await incrementVotes(questionId);
+
+    revalidatePath(`/ui/questions/${questionId}`);
   } catch (error) {
     console.error("Error incrementing vote in database:", error);
     throw new Error("Failed to add vote.");

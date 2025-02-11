@@ -1,46 +1,55 @@
+"use client";
+
 import Image from "next/image";
-import placeholder from "@/assets/placeholder.svg";
+import puggy from "@/assets/puggyastro.png";
 import Link from "next/link";
-import { signIn } from "@/auth";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter();
+
   return (
-    <main className="w-screen py-12 md:py-24 lg:py-32 flex flex-col items-center justify-center">
+    <main className="w-screen py-12 md:py-24 lg:py-32 flex flex-col items-center justify-center dark:from-gray-900 dark:to-gray-800">
       <div className="container px-4 md:px-6">
-        <div className="flex lg:flex-row flex-col gap-4 items-center">
-          <div className="space-y-4">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl">
+        <div className="flex lg:flex-row flex-col gap-8 items-center">
+          <div className="space-y-6 text-center lg:text-left">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-6xl text-gray-900 dark:text-gray-100">
               Unlock the Power of the Web
             </h1>
-            <p className="max-w-[600px] text-muted-foreground md:text-xl">
+
+            <p className="max-w-[600px] text-gray-600 dark:text-gray-300 md:text-xl">
               Discover our suite of tools and services to build, deploy, and
               scale your web applications with ease.
             </p>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <form
-                action={async () => {
-                  "use server";
-                  await signIn("default", { redirectTo: "/ui" });
-                }}
+
+            <div className="flex flex-col gap-3 min-[400px]:flex-row justify-center lg:justify-start">
+              <button
+                onClick={() => router.push("/auth/signin")}
+                className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-white shadow-md transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-light disabled:pointer-events-none disabled:opacity-50"
               >
-                <button className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-                  <div>Sign In</div>
-                </button>
-              </form>
+                Sign In
+              </button>
+
               <Link
                 href="/about"
-                className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-transform hover:scale-105 hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 prefetch={false}
               >
                 Learn More
               </Link>
             </div>
           </div>
-          <Image
-            src={placeholder}
-            alt="Hero"
-            className="mx-auto aspect-square overflow-hidden rounded-xl object-cover w-full max-w-[550px]"
-          />
+
+          <div className="relative">
+            <Image
+              src={puggy}
+              alt="Pug astronaut and elephant plush toy"
+              width={550}
+              height={550}
+              priority
+              className="mx-auto aspect-square overflow-hidden rounded-xl object-cover w-full max-w-[550px] shadow-lg"
+            />
+          </div>
         </div>
       </div>
     </main>

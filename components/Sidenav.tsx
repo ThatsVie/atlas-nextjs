@@ -5,7 +5,8 @@ import NavLink from "./NavLink";
 import SignOutButton from "./SignOutButton";
 import NewTopicButton from "./NewTopicButton";
 import Link from "next/link";
-import { auth } from "@/auth";
+import { auth } from "@/lib/auth";
+import LoggedInUser from "./LoggedInUser";
 
 export default async function SideNav() {
   const session = await auth();
@@ -20,15 +21,7 @@ export default async function SideNav() {
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <NewTopicButton />
 
-        {/* Show logged-in user */}
-        {user && (
-          <div className="flex items-center space-x-2 p-2 rounded-md bg-gray-200">
-            <div className="h-8 w-8 rounded-full bg-gray-400"></div>
-            <span className="text-sm font-medium">
-              {user.name || "Test User"}
-            </span>
-          </div>
-        )}
+        {user && <LoggedInUser />}
 
         <SignOutButton />
       </div>
@@ -44,7 +37,7 @@ function Logo() {
     >
       <Image
         src={logo}
-        alt="Acme Logo"
+        alt="Atlas Logo"
         className="h-14 md:h-full object-contain"
       />
     </Link>
