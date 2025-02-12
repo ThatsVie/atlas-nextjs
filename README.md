@@ -601,7 +601,7 @@ This implementation successfully integrates **server actions** for performing da
 
 ---
 
-## Task 12: OAuth Authenticatio 
+## Task 12: OAuth Authentication 
 
 ### **Learning Objective**  
 - Understand how to **allow users to log in with third-party authentication (GitHub OAuth)**.  
