@@ -40,13 +40,15 @@ function SignInForm() {
               redirect: false,
               email,
               password,
-              callbackUrl: "/ui",
+              callbackUrl: `${window.location.origin}/ui`,
             });
+
+            console.log("Sign-in Response:", res);
 
             if (res?.error) {
               alert("Invalid credentials. Please try again.");
-            } else if (res?.url) {
-              window.location.href = res.url;
+            } else {
+              window.location.href = "/ui";
             }
           }}
           className="space-y-4"
