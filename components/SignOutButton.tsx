@@ -1,5 +1,6 @@
 import { PowerIcon } from "@heroicons/react/24/outline";
-import { signOut } from "@/auth";
+import { signOut } from "next-auth/react";
+
 
 export default function SignOutButton() {
   return (
