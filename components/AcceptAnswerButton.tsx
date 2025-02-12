@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { markAnswerAsAccepted } from "@/lib/actions";
 import { useTransition } from "react";
 
@@ -34,7 +34,7 @@ export function AcceptAnswerButton({
       onClick={handleAccept}
       disabled={isPending || isButtonPending}
     >
-      <CheckIcon className={`h-6 w-6 ${isAccepted ? "text-white" : ""}`} />
+      <CheckCircleIcon className={`h-6 w-6 ${isAccepted ? "text-white" : ""}`} />
     </button>
   );
 }
