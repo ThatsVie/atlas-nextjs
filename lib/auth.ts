@@ -22,13 +22,11 @@ export const { handlers, auth } = NextAuth({
           throw new Error("Email and Password required.");
         }
 
-        // Fetch user from database
         const user = await fetchUser(credentials.email.trim());
         if (!user || !user.password || typeof user.password !== "string") {
           throw new Error("Invalid credentials.");
         }
 
-        // Check password
         const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
         if (!passwordsMatch) {
           throw new Error("Invalid credentials.");
@@ -48,10 +46,25 @@ export const { handlers, auth } = NextAuth({
     signIn: "/auth/signin",
   },
   callbacks: {
-    async signIn({ account }) {
-      return !!account;
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
+      }
+      return token;
     },
-    async redirect({ url, baseUrl }) {
+
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id as string;
+        session.user.name = token.name ?? "";
+        session.user.email = token.email ?? "";
+      }
+      return session;
+    },
+
+    async redirect({ baseUrl }: { baseUrl: string }) {
       return baseUrl;
     },
   },
