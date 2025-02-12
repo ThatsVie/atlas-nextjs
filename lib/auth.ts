@@ -52,7 +52,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/auth/signin",
   },
   callbacks: {
-    async signIn({ account, profile }) {
+    async signIn({ account }) {
       return !!account;
     },
     async jwt({ token, user, account, profile }) {
@@ -60,15 +60,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.id = user.id;
         token.name = user.name;
         token.email = user.email;
-
-        if (account?.provider === "github" && profile?.avatar_url) {
-          token.image = profile.avatar_url as string;
-        } else {
-          token.image = null;
-        }
-
-        token.emailVerified = null;
       }
+
+      if (account?.provider === "github" && profile?.avatar_url) {
+        token.image = profile.avatar_url as string;
+      } else {
+        token.image = null;
+      }
+
+      token.emailVerified = null;
       return token;
     },
     async session({ session, token }) {
@@ -81,8 +81,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       };
       return session;
     },
-    async redirect({ baseUrl }) {
-      return baseUrl;
+    async redirect({ url, baseUrl }) {
+      if (url.startsWith(baseUrl)) return url;
+      return "/ui";
     },
   },
   debug: true,
