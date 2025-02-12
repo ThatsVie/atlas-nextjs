@@ -2,10 +2,15 @@
 
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function LoggedInUser() {
   const { data: session } = useSession();
   const user = session?.user;
+
+  useEffect(() => {
+    console.log("Session Data:", session);
+  }, [session]);
 
   if (!user) return null;
 

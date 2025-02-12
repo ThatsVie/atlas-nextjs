@@ -12,6 +12,8 @@ export default async function SideNav() {
   const session = await auth();
   const user = session?.user;
 
+  console.log("User in Sidenav:", user);
+
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Logo />

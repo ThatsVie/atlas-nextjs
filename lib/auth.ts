@@ -70,7 +70,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       if (account?.provider === "github" && profile?.avatar_url) {
         token.image = profile.avatar_url;
-      } else {
+      } else if (!token.image) {
         token.image = null;
       }
 
