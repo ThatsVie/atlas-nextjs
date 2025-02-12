@@ -41,7 +41,7 @@ This is a full-stack questions and answers application that allows users to crea
 ## Resources
 
 
-### **What I Read**  
+### What I Read  
 
 - **[Next.js: The Fullstack Framework](https://atlas-jswank.github.io/blog/next-js/)** – Overview of Next.js features and use cases.  
 - **[Learn Next.js](https://nextjs.org/learn)** – Official guide covering Next.js fundamentals.  
@@ -57,7 +57,7 @@ This is a full-stack questions and answers application that allows users to crea
 - **[Session Management: Getting User Sessions](https://authjs.dev/getting-started/session-management/get-session?framework=next-js-client)** – How to access session data in Next.js.  
 - **[Handling Sign in and Sign out](https://authjs.dev/getting-started/session-management/login?framework=next-js)** – Official documentation on authentication session management.  
 
-### **Tools I Used**  
+### Tools I Used
 
 - **[Next.js Documentation](https://nextjs.org/docs)** – Reference for Next.js features and API.  
 - **[Vercel](https://vercel.com/)** – Deployment platform for hosting Next.js applications.  
@@ -431,7 +431,7 @@ This implementation successfully integrates **server actions** for performing da
 
 ---
 
-## Task 7: Getting Started-Full Stack React-Part 2-Expanding the Application
+## Task 7: Getting Started - Full Stack React - Part 2 - Expanding the Application
 
 ### **Learning Objective**
 
@@ -464,7 +464,7 @@ This implementation successfully integrates **server actions** for performing da
 
 ---
 
-## Task 8: Question Page - UI Components  
+## Task 8: Question Page - UI Components 
 
 ### **Learning Objective**  
 
@@ -534,7 +534,7 @@ This implementation successfully integrates **server actions** for performing da
 
 ---
 
-## **Task 10: Question Page - Server Actions**  
+## Task 10: Question Page - Server Actions  
 
 ### **Learning Objective**  
 - Learn to **utilize server actions** to **mutate data on the server** in a Next.js application.  
@@ -572,7 +572,7 @@ This implementation successfully integrates **server actions** for performing da
 
 ---
 
-## **Task 11: REST APIs**  
+## Task 11: REST APIs  
 
 ### **Learning Objective**  
 - Understand how to **implement REST API routes** in Next.js.  
@@ -601,7 +601,7 @@ This implementation successfully integrates **server actions** for performing da
 
 ---
 
-## **Task 12: OAuth Authentication**  
+## Task 12: OAuth Authenticatio 
 
 ### **Learning Objective**  
 - Understand how to **allow users to log in with third-party authentication (GitHub OAuth)**.  
@@ -634,7 +634,7 @@ This implementation successfully integrates **server actions** for performing da
 
 ---
 
-## **Final Thoughts**
+## Final Thoughts
 This project solidified my understanding of:
 - **Next.js server actions** for **modifying data on the server**.  
 - **REST API design** and best practices in Next.js.  
