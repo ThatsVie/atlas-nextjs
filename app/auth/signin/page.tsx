@@ -2,13 +2,13 @@
 
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Image from "next/image";
 import logo from "public/logo.png";
 import { FaGithub } from "react-icons/fa";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 
-export default function SignInPage() {
+function SignInForm() {
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
   const [email, setEmail] = useState("");
@@ -20,19 +20,10 @@ export default function SignInPage() {
       <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-xl w-full max-w-md">
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <Image
-            src={logo}
-            alt="Atlas School Logo"
-            width={120}
-            height={40}
-            priority
-            className="animate-fade-in"
-          />
+          <Image src={logo} alt="Atlas School Logo" width={120} height={40} priority />
         </div>
 
-        {error && (
-          <p className="text-red-500 text-sm text-center mb-4">{error}</p>
-        )}
+        {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
 
         <form
           onSubmit={async (e) => {
@@ -53,10 +44,7 @@ export default function SignInPage() {
           className="space-y-4"
         >
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Email
             </label>
             <input
@@ -71,10 +59,7 @@ export default function SignInPage() {
           </div>
 
           <div className="relative">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
               Password
             </label>
             <div className="relative">
@@ -115,9 +100,7 @@ export default function SignInPage() {
         </div>
 
         <button
-          onClick={() =>
-            signIn("github", { prompt: "consent", callbackUrl: "/ui" })
-          }
+          onClick={() => signIn("github", { callbackUrl: "/ui" })}
           className="w-full flex items-center justify-center bg-gray-900 text-white px-6 py-3 rounded-md text-lg font-medium transition-transform hover:scale-105 duration-300"
         >
           <FaGithub className="mr-2" size={24} />
@@ -125,5 +108,13 @@ export default function SignInPage() {
         </button>
       </div>
     </main>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SignInForm />
+    </Suspense>
   );
 }

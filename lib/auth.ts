@@ -30,5 +30,17 @@ export const { handlers, auth } = NextAuth({
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  session: { strategy: "jwt" },
+  pages: {
+    signIn: "/auth/signin",
+  },
+  callbacks: {
+    async signIn({ account, profile }) {
+      if (account?.provider === "github") {
+        return true;
+      }
+      return true;
+    },
+  },
   debug: true,
 });
