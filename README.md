@@ -80,7 +80,7 @@ This is a full-stack questions and answers application that allows users to crea
 
 ---
 
-### Task 0: Getting Started-Full Stack React-Part 1
+## Task 0: Getting Started - Full Stack React - Part 1
 
 ### **What I Did**
 
