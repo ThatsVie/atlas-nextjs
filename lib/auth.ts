@@ -27,11 +27,22 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
 
         const user = await fetchUser(credentials.email.trim());
-        if (!user || typeof user.password !== "string") {
+
+        if (!user || !user.password || typeof user.password !== "string") {
           throw new Error("Invalid credentials.");
         }
 
-        const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
+        if (
+          typeof credentials.password !== "string" ||
+          typeof user.password !== "string"
+        ) {
+          throw new Error("Invalid credentials.");
+        }
+
+        const passwordsMatch = await bcrypt.compare(
+          credentials.password,
+          user.password,
+        );
         if (!passwordsMatch) {
           throw new Error("Invalid credentials.");
         }
@@ -52,7 +63,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/auth/signin",
   },
   callbacks: {
-    async signIn({ account, profile }) {
+    async signIn({ account }) {
       return !!account;
     },
     async jwt({ token, user, account, profile }) {
@@ -64,7 +75,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       if (account?.provider === "github") {
         console.log("GitHub Profile Data:", profile);
-        token.image = profile?.avatar_url ?? null;
+        token.image = profile?.image || profile?.avatar_url || null;
       } else {
         token.image = null;
       }
@@ -84,7 +95,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     async redirect({ url, baseUrl }) {
       console.log("Redirecting to:", url);
-      if (url.startsWith(baseUrl)) return url;
+      if (url?.startsWith(baseUrl)) return url;
       return "/ui";
     },
   },

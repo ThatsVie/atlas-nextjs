@@ -20,10 +20,18 @@ function SignInForm() {
       <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-xl w-full max-w-md">
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <Image src={logo} alt="Atlas School Logo" width={120} height={40} priority />
+          <Image
+            src={logo}
+            alt="Atlas School Logo"
+            width={120}
+            height={40}
+            priority
+          />
         </div>
 
-        {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-sm text-center mb-4">{error}</p>
+        )}
 
         <form
           onSubmit={async (e) => {
@@ -37,14 +45,17 @@ function SignInForm() {
 
             if (res?.error) {
               alert("Invalid credentials. Please try again.");
-            } else {
-              window.location.href = "/ui";
+            } else if (res?.url) {
+              window.location.href = res.url;
             }
           }}
           className="space-y-4"
         >
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
               Email
             </label>
             <input
@@ -59,7 +70,10 @@ function SignInForm() {
           </div>
 
           <div className="relative">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
               Password
             </label>
             <div className="relative">
