@@ -17,45 +17,55 @@
   - [What I Read](#what-i-read)
   - [Tools I Used](#tools-i-used)
 - [Learning Objectives](#learning-objectives)
-- [Task 0: Getting Started-Full Stack React-Part 1](#task-0-getting-started-full-stack-react-part-1)
+- [Task 0: Getting Started - Full Stack React - Part 1](#task-0-getting-started---full-stack-react---part-1)
 - [Task 1: App Routing](#task-1-app-routing)
 - [Task 2: Setup Database](#task-2-setup-database)
 - [Task 3: Data Fetching](#task-3-data-fetching)
 - [Task 4: Server Actions](#task-4-server-actions)
 - [Task 5: Authentication](#task-5-authentication)
 - [Task 6: Deploy Application](#task-6-deploy-application)
-- [Task 7: Getting Started-Full Stack React-Part 2-Expanding the Application](#task-7-getting-started-full-stack-react-part-2-expanding-the-application)
+- [Task 7: Getting Started - Full Stack React - Part 2 - Expanding the Application](#task-7-getting-started---full-stack-react---part-2---expanding-the-application)
+- [Task 8: Question Page - UI Components](#task-8-question-page---ui-components)
+- [Task 9: Question Page - Data Fetching](#task-9-question-page---data-fetching)
+- [Task 10: Question Page - Server Actions](#task-10-question-page---server-actions)
+- [Task 11: REST APIs](#task-11-rest-apis)
+- [Task 12: OAuth Authentication](#task-12-oauth-authentication)
+- [Final Thoughts](#final-thoughts)
 
 ---
 
 ## Project Overview
 
-This is a **full-stack questions and answers application** where users can **create topics, ask questions, provide answers, and vote on responses**. The project builds upon its first phase by introducing **an answers table**, **server components**, and **OAuth authentication** while reinforcing database integration and API development using **Next.js, PostgreSQL, and Vercel**. It provides a structured way to practice building dynamic web applications with user interactions.
+This is a full-stack questions and answers application that allows users to create topics, ask questions, provide answers, vote on responses, and mark accepted answers. Built with Next.js, PostgreSQL, and Vercel, the project follows modern best practices for data fetching, server actions, and authentication.
 
 ## Resources
 
-### **What I Read**
 
-- **[Next.js: The Fullstack Framework](https://atlas-jswank.github.io/blog/next-js/)** – Overview of Next.js features and use cases.
-- **[Learn Next.js](https://nextjs.org/learn)** – Official guide covering Next.js fundamentals.
-- **[Next.js App Router](https://atlas-jswank.github.io/blog/next-js-routing/)** – Overview of the Next.js routing system.
-- **[Routing Fundamentals](https://nextjs.org/docs/app/building-your-application/routing)** – Official Next.js documentation for routing.
-- **[Next.js Database Setup](https://atlas-jswank.github.io/blog/next-js-database/)** – Guide for setting up and integrating a database.
-- **[Next.js Data Fetching](https://atlas-jswank.github.io/blog/next-js-data-fetching/)** – Guide for fetching and displaying data in Next.js.
-- **[Next.js Server Actions](https://atlas-jswank.github.io/blog/next-js-server-actions/)** – Overview of server actions in Next.js.
-- **[React Server Actions](https://react.dev/reference/rsc/server-functions)** – Official React documentation on server functions.
-- **[Next JS Authentication Blog](https://atlas-jswank.github.io/blog/next-js-authentication/)** – Step-by-step blog tutorial.
-- **[Handling Sign in and Sign out](https://authjs.dev/getting-started/session-management/login?framework=next-js)** – Official documentation on authentication session management.
+### **What I Read**  
 
-### **Tools I Used**
+- **[Next.js: The Fullstack Framework](https://atlas-jswank.github.io/blog/next-js/)** – Overview of Next.js features and use cases.  
+- **[Learn Next.js](https://nextjs.org/learn)** – Official guide covering Next.js fundamentals.  
+- **[Next.js App Router](https://atlas-jswank.github.io/blog/next-js-routing/)** – Overview of the Next.js routing system.  
+- **[Routing Fundamentals](https://nextjs.org/docs/app/building-your-application/routing)** – Official Next.js documentation for routing.  
+- **[Route Handlers in Next.js](https://nextjs.org/docs/app/building-your-application/routing/route-handlers)** – Guide to implementing API routes using Next.js.  
+- **[Next.js Database Setup](https://atlas-jswank.github.io/blog/next-js-database/)** – Guide for setting up and integrating a database.  
+- **[Next.js Data Fetching](https://atlas-jswank.github.io/blog/next-js-data-fetching/)** – Guide for fetching and displaying data in Next.js.  
+- **[Next.js Server Actions](https://atlas-jswank.github.io/blog/next-js-server-actions/)** – Overview of server actions in Next.js.  
+- **[React Server Actions](https://react.dev/reference/rsc/server-functions)** – Official React documentation on server functions.  
+- **[Next JS Authentication Blog](https://atlas-jswank.github.io/blog/next-js-authentication/)** – Step-by-step blog tutorial.  
+- **[Configuring GitHub OAuth](https://authjs.dev/guides/configuring-github?framework=qwik)** – Guide on setting up GitHub authentication with NextAuth.js.  
+- **[Session Management: Getting User Sessions](https://authjs.dev/getting-started/session-management/get-session?framework=next-js-client)** – How to access session data in Next.js.  
+- **[Handling Sign in and Sign out](https://authjs.dev/getting-started/session-management/login?framework=next-js)** – Official documentation on authentication session management.  
 
-- **[Next.js Documentation](https://nextjs.org/docs)** – Reference for Next.js features and API.
-- **[Vercel](https://vercel.com/)** – Deployment platform for hosting Next.js applications.
-- **[Figma ERD](https://www.figma.com/design/3p1l0UWm9lX5NsN9xCg6FK/Full-Stack-React-Project-ERD?node-id=0-1)** – Entity Relationship Diagram for database design.
+### **Tools I Used**  
+
+- **[Next.js Documentation](https://nextjs.org/docs)** – Reference for Next.js features and API.  
+- **[Vercel](https://vercel.com/)** – Deployment platform for hosting Next.js applications.  
+- **[Figma ERD](https://www.figma.com/design/3p1l0UWm9lX5NsN9xCg6FK/Full-Stack-React-Project-ERD?node-id=0-1)** – Entity Relationship Diagram for database design.  
 - **[Demo Provided in Curriculum](https://atlas-nextjs-jswank.vercel.app/)**  
   **Demo Credentials:**  
    **Email:** `user@atlasmail.com`  
-   **Password:** `123456`
+   **Password:** `123456`  
 
 ---
 
@@ -453,3 +463,181 @@ This implementation successfully integrates **server actions** for performing da
 - The repository is prepared for further enhancements in upcoming tasks.
 
 ---
+
+## Task 8: Question Page - UI Components  
+
+### **Learning Objective**  
+
+- Learn to implement **client and server components** in a Next.js application.  
+
+
+### **What I Did**  
+
+#### **1. Created the Question Page (`/ui/questions/:id`)**
+- Implemented a **new dynamic route**:  
+  - Users can now navigate to `/ui/questions/:id` to view a **specific question and its answers**.  
+
+#### **2. Updated Topics Page to Link to Questions**
+- Each **question on the `/ui/topics/:id` page** is now a **clickable link**.  
+- Clicking a question **navigates the user to `/ui/questions/:id`**.
+
+#### **3. Implemented UI for Question and Answers**
+- **Displayed the question text** at the top of the page.  
+- **Created a text box** to allow users to submit new answers.  
+- **Listed all submitted answers** below the answer form.  
+
+#### **4. Designed UI for Accepted Answers**
+- If an answer is **marked as accepted**, it appears at the **top of the list**.  
+- Applied a **green checkmark** (✔) to visually distinguish the accepted answer.  
+
+#### **5. Added a Button to Accept Answers**
+- Each answer now includes a **button with a checkmark**.  
+- This button allows users to **mark an answer as accepted**.  
+
+
+### **Result**  
+- Users can **view questions and their answers** on a dedicated page.  
+- The UI **allows submitting answers** and **marking an answer as accepted**.  
+- The **accepted answer is always displayed first**, improving clarity for users.  
+- **Navigation is intuitive**, with clickable questions leading to their respective pages.  
+
+---
+
+
+## Task 9: Question Page - Data Fetching
+
+### **Learning Objective**
+
+- Learn to **fetch and display data in server components** from the database.
+
+
+### **What I Did**
+
+1. **Added a function in `lib/data.ts` to fetch a question by ID**  
+   - Implemented a SQL query to retrieve question details.
+
+2. **Created a function in `lib/data.ts` to fetch answers for a question**  
+   - Implemented a SQL query to return answers in order, with the accepted answer appearing first.
+
+3. **Updated the question page (`app/ui/questions/[id]/page.tsx`) to fetch and display data**  
+   - Used `fetchQuestionById(id)` to render the question text.
+   - Used `fetchAnswers(questionId)` to render the answer list.
+
+4. **Styled the accepted answer differently**  
+   - Applied a **green checkmark** to highlight the accepted answer.
+
+
+### **Result**
+- The **question page now displays actual data** from the database.  
+- **Answers are listed correctly**, with the accepted answer at the top.  
+- The **question heading is dynamically retrieved and displayed**.
+
+---
+
+## **Task 10: Question Page - Server Actions**  
+
+### **Learning Objective**  
+- Learn to **utilize server actions** to **mutate data on the server** in a Next.js application.  
+
+---
+
+### **What I Did**  
+
+#### **1. Implemented Server Action to Add an Answer**  
+- **Created** `addAnswer` function in `lib/actions.ts`.  
+- **Updated `lib/data.ts`** to include a function that performs the **SQL query to insert answers**.  
+- **Ensured the page updates automatically** after an answer is submitted.  
+
+#### **2. Implemented Server Action to Mark an Answer as Accepted**  
+- **Created** `markAnswerAsAccepted` function in `lib/actions.ts`.  
+- **Updated `lib/data.ts`** to include a function that performs the **SQL query to mark an answer as accepted**.  
+- **Ensured page updates automatically** to reflect the accepted answer.  
+
+#### **3. Integrated Actions with UI**  
+- **Updated the question page (`/ui/questions/:id`)** to call `addAnswer` and `markAnswerAsAccepted`.  
+- **The checkmark button now updates the accepted answer** and moves it to the top of the list.  
+
+#### **4. Debugging & Troubleshooting**
+- **Issue:** Button to mark an answer as accepted was not updating UI.  
+  - **Solution:** Used `useTransition` to trigger re-fetch after action completion.  
+- **Issue:** Newly added answers were not appearing immediately.  
+  - **Solution:** Ensured server actions revalidate the cache and trigger a UI refresh.
+
+---
+
+### **Result**  
+- Users can **submit answers** to questions.  
+- Users can **mark an answer as accepted**, and the page updates immediately.  
+- The **database correctly stores submitted answers and accepted answers**.  
+
+---
+
+## **Task 11: REST APIs**  
+
+### **Learning Objective**  
+- Understand how to **implement REST API routes** in Next.js.  
+
+---
+
+### **What I Did**  
+
+#### **1. Implemented Topics API Endpoint**  
+- Created `/api/topics` **to return all topics** in JSON format.  
+- Used `fetchTopics()` from `lib/data.ts` to retrieve topics from the database.  
+
+#### **2. Implemented Questions API Endpoint**  
+- Created `/api/topics/:id/questions` **to return questions for a given topic**.  
+- Used `fetchQuestions(topic_id)` from `lib/data.ts` to get questions.  
+
+#### **3. Implemented Answers API Endpoint**  
+- Created `/api/questions/:id/answers` **to return answers for a given question**.  
+- Used `fetchAnswers(question_id)` from `lib/data.ts`.  
+
+
+### **Result**  
+- REST API **provides structured JSON responses** for topics, questions, and answers.  
+- **Frontend can now dynamically fetch data** using these API routes.  
+- Database interactions are **efficient and secure** through API endpoints.  
+
+---
+
+## **Task 12: OAuth Authentication**  
+
+### **Learning Objective**  
+- Understand how to **allow users to log in with third-party authentication (GitHub OAuth)**.  
+
+---
+
+### **What I Did**  
+
+#### **1. Implemented GitHub Authentication**  
+- Added **GitHub OAuth using `next-auth/providers/github`**.  
+- Users can now **log in with GitHub from the sign-in page**.  
+
+#### **2. Created LoggedInUser Component**  
+- Created `components/LoggedInUser.tsx` to **display the logged-in user's avatar and name**.  
+- If a user **logs in with GitHub, their GitHub avatar is displayed**.  
+- If a user **logs in with credentials, a default gray avatar is used**.  
+
+#### **3. Integrated LoggedInUser Component into Sidebar**  
+- Added `LoggedInUser` to the **sidebar (`components/Sidenav.tsx`)**.  
+- Ensured the component correctly updates when a user logs in or logs out.  
+
+#### **4. Debugging & Troubleshooting**
+- **Issue:** GitHub avatar not displaying after login.  
+  - **Solution:** Verified `profile.avatar_url` was correctly stored in `token.image`.   
+
+### **Result**  
+- Users can **log in with GitHub** and see their **GitHub avatar**.  
+- **Sidebar dynamically updates** to show the logged-in user's information.  
+- Application now supports **both OAuth (GitHub) and credential-based login**.  
+
+---
+
+## **Final Thoughts**
+This project solidified my understanding of:
+- **Next.js server actions** for **modifying data on the server**.  
+- **REST API design** and best practices in Next.js.  
+- **OAuth authentication with NextAuth** and handling multiple login methods.  
+- **Debugging common issues** with authentication, API calls, and UI updates.  
+
