@@ -28,13 +28,13 @@ export function AcceptAnswerButton({
 
   return (
     <button
-      className={`px-2 py-1 rounded hover:bg-gray-300 ${
-        isAccepted ? "bg-primary text-white" : "bg-gray-200"
-      }`}
+      className={`flex items-center justify-center rounded-full border-2 ${
+        isAccepted ? "bg-primary text-white border-primary" : "bg-transparent border-gray-300"
+      } transition duration-200 ease-in-out hover:border-gray-500 focus:outline-none`}
       onClick={handleAccept}
       disabled={isPending || isButtonPending}
     >
-      <CheckCircleIcon className={`h-6 w-6 ${isAccepted ? "text-white" : ""}`} />
+      <CheckCircleIcon className={`h-6 w-6 ${isAccepted ? "text-white" : "text-gray-500"}`} />
     </button>
   );
 }
