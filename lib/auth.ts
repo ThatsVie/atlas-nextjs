@@ -1,18 +1,22 @@
 import NextAuth from "next-auth";
-import GitHubProvider from "next-auth/providers/github";
-import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
+import Credentials from "next-auth/providers/credentials";
+import GitHub from "next-auth/providers/github";
 import { fetchUser } from "@/lib/data";
+import bcrypt from "bcryptjs";
 
 export const { handlers, auth } = NextAuth({
+  theme: {
+    brandColor: "#1ED2AF",
+    logo: "/logo.png",
+    buttonText: "#ffffff",
+  },
   providers: [
-    GitHubProvider({
+    GitHub({
       clientId: process.env.GITHUB_ID!,
       clientSecret: process.env.GITHUB_SECRET!,
       authorization: { params: { prompt: "consent" } },
     }),
-    CredentialsProvider({
-      name: "Credentials",
+    Credentials({
       credentials: {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
@@ -26,15 +30,17 @@ export const { handlers, auth } = NextAuth({
           throw new Error("Email and Password required.");
         }
 
-        const email = credentials.email.trim();
-        const password = credentials.password;
+        const user = await fetchUser(credentials.email.trim());
 
-        const user = await fetchUser(email);
         if (!user || !user.password || typeof user.password !== "string") {
           throw new Error("Invalid credentials.");
         }
 
-        const passwordsMatch = await bcrypt.compare(password, user.password);
+        const passwordsMatch = await bcrypt.compare(
+          credentials.password,
+          user.password
+        );
+
         if (!passwordsMatch) {
           throw new Error("Invalid credentials.");
         }
@@ -43,16 +49,19 @@ export const { handlers, auth } = NextAuth({
           id: user.id,
           name: user.name,
           email: user.email,
+          emailVerified: null,
         };
       },
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  session: { strategy: "jwt" },
   pages: {
     signIn: "/auth/signin",
   },
   callbacks: {
+    async signIn({ account }) {
+      return !!account;
+    },
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
@@ -61,17 +70,18 @@ export const { handlers, auth } = NextAuth({
       }
       return token;
     },
-
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.id as string;
-        session.user.name = token.name ?? "";
-        session.user.email = token.email ?? "";
+        session.user = {
+          id: token.id as string,
+          name: token.name ?? "",
+          email: token.email ?? "",
+          emailVerified: null,
+        };
       }
       return session;
     },
-
-    async redirect({ baseUrl }: { baseUrl: string }) {
+    async redirect({ baseUrl }) {
       return baseUrl;
     },
   },
