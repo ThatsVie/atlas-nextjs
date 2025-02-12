@@ -18,16 +18,23 @@ export const { handlers, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials || typeof credentials.email !== "string" || typeof credentials.password !== "string") {
+        if (
+          !credentials ||
+          typeof credentials.email !== "string" ||
+          typeof credentials.password !== "string"
+        ) {
           throw new Error("Email and Password required.");
         }
 
-        const user = await fetchUser(credentials.email.trim());
+        const email = credentials.email.trim();
+        const password = credentials.password;
+
+        const user = await fetchUser(email);
         if (!user || !user.password || typeof user.password !== "string") {
           throw new Error("Invalid credentials.");
         }
 
-        const passwordsMatch = await bcrypt.compare(credentials.password, user.password);
+        const passwordsMatch = await bcrypt.compare(password, user.password);
         if (!passwordsMatch) {
           throw new Error("Invalid credentials.");
         }
