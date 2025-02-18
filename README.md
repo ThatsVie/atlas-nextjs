@@ -641,3 +641,6 @@ This project solidified my understanding of:
 - **OAuth authentication with NextAuth** and handling multiple login methods.  
 - **Debugging common issues** with authentication, API calls, and UI updates.  
 
+With love, 
+<br>
+**[Vie P.](https://whatdoyouknowaboutlove.com/viepaula/)**
