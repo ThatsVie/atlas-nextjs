@@ -643,4 +643,4 @@ This project solidified my understanding of:
 
 With love, 
 <br>
-**[Vie P.](https://whatdoyouknowaboutlove.com/viepaula/)**
+**[Vie P.](https://whatdoyouknowaboutlove.com/viep/)**
